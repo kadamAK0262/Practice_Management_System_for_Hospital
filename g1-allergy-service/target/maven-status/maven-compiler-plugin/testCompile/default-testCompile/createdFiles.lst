@@ -1,0 +1,5 @@
+com\revature\G1AllergyServiceApplicationTests.class
+com\revature\service\test\AllergyServiceTest.class
+com\revature\integrationTests\AlllergyIntegrationTests.class
+com\revature\integrationTests\AlllergyIntegrationTests$1.class
+com\revature\controller\test\AllergyControllerTest.class

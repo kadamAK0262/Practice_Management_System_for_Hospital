@@ -1,0 +1,13 @@
+com\revature\G1AllergyServiceApplication.class
+com\revature\exceptions\ApiError.class
+com\revature\repository\AllergyRepository.class
+com\revature\loggers\Logging.class
+com\revature\exceptions\ResponseEntityHelper.class
+com\revature\controller\AllergyController.class
+com\revature\serviceImpl\AllergyServiceImpl.class
+com\revature\exceptions\MethodArgumentTypeMismatchException.class
+com\revature\exceptions\ResourceNotFoundException.class
+com\revature\service\AllergyService.class
+com\revature\exceptions\GlobalExceptionHandler.class
+com\revature\entity\Allergy.class
+com\revature\dto\AllergyDto.class
