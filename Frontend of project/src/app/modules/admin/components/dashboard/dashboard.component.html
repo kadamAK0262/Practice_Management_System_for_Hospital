@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- <div *ngIf="auth.user$|async as user" class="main__title">
+    <div>
+        <h1>{{user['role']}}</h1>
+    </div>
+    <div>
+        <h2>Welcome {{user.name}}!</h2>
+    </div>
+</div> -->
+
+<h2 style="display: flex;margin-left:2%;color: brown;">Dashboard</h2>
+<div class="main__cards">
+    <div class="card" style="background-color:aliceblue;">
+        <i class="fa-solid fa-user fa-2x"></i>
+        <div class="card_inner">
+            <p class="text-primary-p">Admins</p>
+            <span class="font-bold text-title">
+                <div class="counter">
+                    <span class="count">
+                        <h1>{{adminCount}}</h1>
+                    </span>
+                </div>
+            </span>
+        </div>
+    </div>
+    <div class="card" style="background-color:aliceblue;">
+        <i class="fa fa-heartbeat fa-2x" aria-hidden="true"></i>
+        <div class="card_inner">
+            <p class="text-primary-p">Patients</p>
+            <span class="font-bold text-title">
+                <div class="counter">
+                    <span class="count">
+                        <h1>{{patientCount}}</h1>
+                    </span>
+                </div>
+            </span>
+        </div>
+    </div>
+    <div class="card" style="background-color:aliceblue;">
+        <i class="fa fa-user-md fa-2x" aria-hidden="true"></i>
+        <div class="card_inner">
+            <p class="text-primary-p">Doctors</p>
+            <span class="font-bold text-title">
+                <div class="counter">
+                    <span class="count">
+                        <h1>{{doctorCount}}</h1>
+                    </span>
+                </div>
+            </span>
+        </div>
+    </div>
+    <div class="card" style="background-color:aliceblue;">
+        <i class="fa fa-user-nurse fa-2x" aria-hidden="true"></i>
+        <div class="card_inner">
+            <p class="text-primary-p">Nurses</p>
+            <span class="font-bold text-title">
+                <div class="counter">
+                    <span class="count">
+                        <h1>{{nurseCount}}</h1>
+                    </span>
+                </div>
+            </span>
+        </div>
+    </div>
+</div>

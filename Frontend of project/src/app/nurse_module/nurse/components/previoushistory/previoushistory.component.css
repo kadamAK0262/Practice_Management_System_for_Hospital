@@ -1,0 +1,94 @@
+table {
+    width: 100%;
+}
+
+tr.example-detail-row {
+    height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+    background: whitesmoke;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+    background: #efefef;
+}
+
+.example-element-row td {
+    border-bottom-width: 0;
+}
+
+.example-element-detail {
+    overflow: hidden;
+    display: flex;
+}
+
+.example-element-diagram {
+    min-width: 80px;
+    border: 2px solid black;
+    padding: 8px;
+    font-weight: lighter;
+    margin: 8px 0;
+    height: 104px;
+}
+
+.example-element-symbol {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: normal;
+}
+
+.example-element-description {
+    padding: 16px;
+}
+
+.example-element-description-attribution {
+    opacity: 0.5;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(200, 239, 201);
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #f0e3e3;
+}
+
+.mat-elevation-z8 {
+    float: left;
+    width: 50%;
+    padding: 5px;
+}
+
+.row {
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+.card-wrapper {
+    border: 2px solid gray;
+    padding: 0.75rem;
+}
+
+.card-custom {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-description {
+    width: 68%;
+}

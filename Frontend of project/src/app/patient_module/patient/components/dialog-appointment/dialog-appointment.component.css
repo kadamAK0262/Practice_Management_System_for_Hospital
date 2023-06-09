@@ -1,0 +1,19 @@
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h3 {
+    text-align: center;
+}
+
+.container {
+    width: 30vw;
+    height: 60vh;
+}
+
+mat-form-field {
+    width: 17vw;
+}

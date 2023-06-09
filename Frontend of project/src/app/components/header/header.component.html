@@ -1,0 +1,19 @@
+<mat-toolbar>
+    <!-- <mat-icon class="example-tab-icon">local_hospital</mat-icon>
+    <span style="font-size: 1.2vw; font-weight: 500">PMS</span> -->
+    <img src="../../../assets/headerlogo.png" alt="icon" style="height: 56%; width: 9%" />
+    <span class="example-spacer"></span>
+    <!-- <a type="button" href="" style="font-size: 2vw;">Home</a> -->
+
+    <button mat-stroked-button class="toolbar_btn btn-1" (click)="auth.loginWithRedirect()">
+        <span> login</span>
+    </button>
+    <!-- <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
+              <button (click)="auth.logout()">
+                  Log out
+              </button>
+          </ng-container> -->
+    <!-- <ng-template #loggedOut>
+              <button (click)="auth.loginWithRedirect()">Log in</button>
+          </ng-template> -->
+</mat-toolbar>

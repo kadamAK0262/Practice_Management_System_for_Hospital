@@ -1,0 +1,19 @@
+<button mat-icon-button matDialogClose style="float:right;margin:15px 15px 0 0 ;">
+    <mat-icon>close</mat-icon>
+</button>
+<div class="dialog">
+    <mat-dialog-content>
+
+        <header>
+            <h1 style="color:purple">Are you sure</h1>
+            <mat-divider></mat-divider>
+        </header>
+    </mat-dialog-content>
+    <mat-dialog-actions class="qwerty">
+        <button mat-stroked-button *ngIf="status=='acceptance'" style=" color: purple;" (click)="onAcceptAndReject()"
+            matDialogClose>Accept</button>
+        <button mat-stroked-button *ngIf="status=='rejected'" style="color: purple;" (click)="onAcceptAndReject()"
+            matDialogClose>Reject</button>
+        <button mat-stroked-button color="warn" matDialogClose>Cancel</button>
+    </mat-dialog-actions>
+</div>

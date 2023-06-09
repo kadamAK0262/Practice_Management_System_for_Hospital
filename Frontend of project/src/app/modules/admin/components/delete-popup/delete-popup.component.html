@@ -1,0 +1,18 @@
+<mat-dialog-content class="qwerty">
+    <button mat-icon-button style="float: right;margin: 5px;" matDialogClose>
+        <mat-icon>close</mat-icon>
+    </button>
+    <header>
+        <h2>Delete Physician </h2>
+        <mat-divider></mat-divider>
+        <br>
+    </header>
+    <div>
+        Are you sure you want to delete
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-raised-button color="primary" (click)="delete()" matDialogClose>Delete</button>
+    <button mat-raised-button color="warn" matDialogClose>Cancel</button>
+</mat-dialog-actions>

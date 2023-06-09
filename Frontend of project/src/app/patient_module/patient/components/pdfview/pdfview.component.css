@@ -1,0 +1,155 @@
+ /* .row{
+    justify-content: center;
+    margin-top: 1%;
+    display: flex;
+    
+ }
+
+
+ .patientinfo{
+    justify-content: center;
+    
+ }
+
+
+
+
+ .row{
+    justify-content: center;
+    margin-top: 1%;
+    display: flex;
+
+ }
+
+ .b1{
+    justify-content: center;
+    margin-left: -10vh  ;
+
+ }
+ .b2{
+    justify-content: center;
+    margin-left: 15%;
+
+ }
+
+ .testinfo{
+    margin-left: 25%    ;
+
+ }
+
+ .t1{
+   /* justify-content: center;
+   margin-left: 40%; 
+  
+ }
+
+ .t{
+   margin-left: 35%;
+   
+ }
+  
+
+  /* body { font-family: Arial; font-size: 15.9px }
+.pos {  left: 0px; top: 0px } */
+
+/*.DoctorInfo{
+   justify-content: center;
+   margin-left: 10%;
+}
+
+
+
+body {
+   font-family: Arial, sans-serif;
+   margin: 0;
+   padding: 0;
+}
+  
+.container {
+      max-width: inherit;
+   margin: 0 auto;
+   padding: 20px;
+   border: 1px solid #ddd;
+   box-shadow: 0 0 10px #ddd;
+}
+
+header {
+   background-color: #f7fcf7;
+   color: #080707;
+   padding: 20px;
+   text-align: center;
+   margin-bottom: 20px;
+   position: relative;
+}
+
+h1 {
+   margin: 0;
+   font-size: 28px;
+}
+
+.logo {
+   position: absolute;
+   top:5px;
+   left: 20px;
+   height: 60px;
+   width: 80px;
+   object-fit: contain;
+
+   border: 2px solid #fff;
+}
+
+section {
+   padding: 20px;
+   border-bottom: 1px solid #ddd;
+   margin-bottom: 20px;
+}
+
+h2 {
+   margin-top: 0;
+   font-size: 24px;
+   margin-bottom: 10px;
+}
+
+p {
+   margin: 0;
+   line-height: 1.5;
+   font-size: 16px;
+   margin-bottom: 10px;
+}
+
+ul {
+   margin: 0;
+   padding: 0;
+   list-style-type: none;
+   font-size: 16px;
+   margin-bottom: 10px;
+}
+
+li:before {
+   content: "\2022";
+   color: #4CAF50;
+   display: inline-block;
+   width: 1em;
+   margin-left: -1em;
+}*/
+
+
+.logo {
+   position: absolute;
+   top:5px;
+   left: 20px;
+   height: 60px;
+   width: 80px;
+   object-fit: contain;
+
+   /* border: 2px solid #fff; */
+}
+.container {
+   max-width: inherit;
+margin: 0 auto;
+padding: 20px;
+border: 1px solid #ddd;
+box-shadow: 0 0 10px #ddd;
+ font-size: 18px; 
+
+}

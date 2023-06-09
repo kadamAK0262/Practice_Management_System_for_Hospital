@@ -1,0 +1,65 @@
+<!-- <body class="img"  style="background-image:'assets\docmain2.jpg';background-position: center ;display: flex; ">    
+
+  <p>dashboard works!</p> -->
+
+<!-- <div class="back-img" style="height: fit-content;width: max-content;"> -->
+<!-- <img src="assets\docmain2.jpg" alt=""> -->
+<!-- </div> -->
+<!-- </body> -->
+
+<div class="main__cards">
+    <div class="card" style="background-color:purple;">
+        <i class="fa fa-heartbeat fa-2x" aria-hidden="true"></i>
+        <div class="card_inner">
+            <h3>Appointments :</h3>
+        </div>
+        <div class="counter">
+            <span class="count">
+                <h2>{{appointmentCount}}</h2>
+            </span>
+        </div>
+    </div>
+    <div class="card" style="background-color:purple;" routerLink="/physician/pending-appointments">
+        <i class="fa fa-heartbeat fa-2x" aria-hidden="true"></i>
+        <div class="card_inner">
+            <h3>Pending Appointments :</h3>
+        </div>
+        <div class="counter">
+            <span class="count">
+                <h2>{{pendingCount}}</h2>
+            </span>
+        </div>
+    </div>
+    <div class="card" style="background-color:purple;" routerLink="/physician/appointments">
+        <i class="fa fa-heartbeat fa-2x" aria-hidden="true"></i>
+        <div class="card_inner">
+            <h3>Accepted Appointment :</h3>
+        </div>
+        <div class="counter">
+            <span class="count">
+                <h2>{{acceptedCount}}</h2>
+            </span>
+        </div>
+    </div>
+</div>
+<div>
+    <div class="centered">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+            integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <div>
+            <h1 style="color:purple">Welcome <span *ngIf="auth.user$ | async as user">{{user.name}}</span></h1>
+        </div>
+    </div>
+    <div class="centered">
+        <div class="button_container">
+            <p>
+                <button routerLink="/physician/appointments" class="btn"><span>Appointments</span></button>
+            </p>
+            <p>
+                <button routerLink="/physician/pending-appointments" class="btn"><span>Pending
+                        Appointments</span></button>
+            </p>
+        </div>
+
+    </div>

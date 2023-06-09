@@ -1,0 +1,104 @@
+<div class="wrapper" @fadein>
+    <div class="container">
+        <div class="col-right">
+            <div class="login-form">
+                <h2>Forgot Password</h2>
+                <form [formGroup]="forgotPassword" (ngSubmit)="sendOTP()">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input matInput type="email" formControlName="userEmail" id="userEmail" required>
+                        <mat-error
+                            *ngIf="(forgot.userEmail.invalid &&  forgot.userEmail.touched)||(forgot.userEmail.invalid &&  submitted)">
+                            <span *ngIf="forgot.userEmail.errors.required">email is mandatory</span>
+                            <span *ngIf="forgot.userEmail.errors.email">invalid email!</span>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <div class="button">
+                        <button type="submit" mat-raised-button *ngIf="emailbutton"
+                            style="background-color: purple;color: white;width:100%;">Send OTP</button>
+                    </div>
+                </form>
+                <div *ngIf="showOTP">
+                    <form [formGroup]="otpVerify" (ngSubmit)="verifyOTP()">
+                        <div>
+                            <!-- <label for="otp">OTP:</label>
+                            <input type="text" formControlName="otp" required>
+                            <div *ngIf="showIncorrectOTP">
+                                <span class="error">The OTP you entered is incorrect.</span>
+                            </div> -->
+                            <mat-form-field appearance="outline">
+                                <mat-label>OTP</mat-label>
+                                <input matInput type="text" formControlName="otp" reuired>
+                                <mat-error
+                                    *ngIf="(getOtp.otp.invalid &&  getOtp.otp.touched)||(getOtp.otp.invalid &&  submitted)">
+                                    <span *ngIf="getOtp.otp.errors.required">Input field is empty</span>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="button">
+                            <button type="submit" mat-raised-button *ngIf="verifybutton"
+                                style="background-color: purple;color: white;width:100%;">Verify OTP</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- **************** -->
+                <div *ngIf="showResendOTP">
+                    <div style="margin:10px 0 10px 0">
+                        <button type="submit" mat-raised-button *ngIf="verifybutton" (click)="resendOtp()"
+                            style="background-color: purple;color: white;width:100%;">Resend OTP</button>
+                    </div>
+                </div>
+                <!-- ****************** -->
+                <div *ngIf="showNewPassword">
+                    <form [formGroup]="password" (ngSubmit)="resetPassword()">
+                        <!-- <div>
+                            <label for="newPassword">New Password:</label>
+                            <input type="password" name="newPassword" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="retypePassword">Retype Password:</label>
+                            <input type="password" name="retypePassword" required>
+                            <div *ngIf="showPasswordMismatch">
+                                <span class="error">The passwords you entered do not match.</span>
+                            </div>
+                        </div>
+                        <button type="submit">Reset Password</button> -->
+                        <mat-form-field appearance="outline">
+                            <input matInput placeholder="New Password" [type]="hide0 ? 'password' : 'text'"
+                                formControlName="newpassword" required>
+                            <mat-icon matSuffix (click)="hide0 = !hide0">{{hide0 ? 'visibility_off' :
+                                'visibility'}}</mat-icon>
+                            <mat-error
+                                *ngIf="(register.newpassword.invalid &&  register.newpassword.touched)||(register.newpassword.invalid &&  submitted)">
+                                <span *ngIf="register.newpassword.errors.required">password is mandatory</span>
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <input matInput placeholder="Confirm Password" [type]="hide ? 'password' : 'text'"
+                                formControlName="confirmpassword" required>
+                            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' :
+                                'visibility'}}</mat-icon>
+                            <mat-error
+                                *ngIf="(register.confirmpassword.invalid &&  register.confirmpassword.touched)||(register.confirmpassword.invalid &&  submitted)">
+                                <span *ngIf="register.confirmpassword.errors.required">password is required</span>
+                            </mat-error>
+                        </mat-form-field>
+                        <div class="button">
+                            <button type="submit" mat-raised-button
+                                style="background-color: purple;color: white;width:100%;">Reset Password</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        <!-- ************ ******************************* -->
+
+
+        <!-- <div *ngIf="VerifyEmail"></div> -->
+
+    </div>
+</div>

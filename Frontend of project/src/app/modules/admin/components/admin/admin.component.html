@@ -1,0 +1,43 @@
+<div class="mat-elevation-z8 table_div" style="margin:5vh 5vh 0 5vh;">
+    <mat-card style="flex-direction:row;justify-content:space-between;background-color:#10b4d2e8;">
+
+        <div class="admin_info">
+            Admin Details:
+        </div>
+        <div style="padding: 10px;">
+            <input (keyup)="applyFilter($event)" placeholder="search..." #input class="search">
+        </div>
+
+    </mat-card>
+    <mat-card>
+        <table mat-table [dataSource]="dataSource" class="tablecss">
+            <!-- Position Column -->
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> ID </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.name1}} </td>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef> Email </th>
+                <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+            </ng-container>
+
+
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+            aria-label="Select page of periodic elements" class="tablecss">
+        </mat-paginator>
+    </mat-card>
+</div>
+<!-- </div> -->

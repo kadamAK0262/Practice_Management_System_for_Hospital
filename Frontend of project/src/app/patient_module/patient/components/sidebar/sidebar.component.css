@@ -1,0 +1,108 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.example-sidenav-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+}
+
+.example-is-mobile .example-toolbar {
+    position: fixed;
+    /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+    z-index: 2;
+}
+
+h1.example-app-name {
+    margin-left: 8px;
+}
+
+.example-sidenav-container {
+    /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+         causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+    flex: 1;
+}
+
+.example-is-mobile .example-sidenav-container {
+    /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+         `<body>` to be our scrolling element for mobile layouts. */
+    flex: 1 0 auto;
+}
+
+mat-toolbar {
+    background: #c6cdd5;
+    color: white;
+}
+
+mat-sidenav {
+    margin: 16px;
+    width: 30%;
+    border-right: none;
+    color: rgb(211, 202, 231);
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+    background-color: snow;
+    border: 1px solid darkviolet;
+}
+
+.content {
+    height: calc(100vh - 130px);
+    border-radius: 10px;
+    margin: 16px;
+    margin-left: 32px;
+    padding: 16px;
+    overflow: auto;
+}
+
+mat-sidenav-container {
+    height: calc(100vh - 65px);
+}
+
+.menu-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+
+    /* mat-icon {
+        margin-right: 8px;
+      } */
+}
+
+.avatar {
+    margin-top: 16px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.name {
+    margin-top: 15px;
+    font-family: "Roboto", sans-serif;
+    font-size: medium;
+    font-style: initial;
+    font-weight: 700;
+    color: black;
+}
+
+.designation {
+    margin-top: 15px;
+    font-family: "Roboto", sans-serif;
+    font-size: medium;
+    font-style: initial;
+    font-weight: 700;
+    color: black;
+}
+
+mat-divider {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.active {
+    background-color: rgb(186, 143, 205);
+}

@@ -1,0 +1,54 @@
+<div class="wrapper">
+    <div class="container">
+        <div class="col-left">
+            <div class="login-text">
+                <!-- <h2>Logo</h2> -->
+
+            </div>
+        </div>
+        <div class="col-right">
+            <div class="login-form">
+                <h2>Login</h2>
+                <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+                    <div>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input matInput type="email" placeholder="Email" formControlName="email" id="email" />
+                            <!-- <mat-hint align="end">Not more then 10 characters long.</mat-hint> -->
+                            <mat-error
+                                *ngIf="(login.email.invalid &&  login.email.touched)||(login.email.invalid &&  submitted)">
+                                <span *ngIf="login.email.errors.required">email is mandatory</span>
+                                <span *ngIf="login.email.errors.email">invalid email!</span>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Password</mat-label>
+                            <input matInput placeholder="password" [type]="hide? 'password' : 'text'"
+                                formControlName="password">
+                            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' :
+                                'visibility'}}</mat-icon>
+                            <mat-error
+                                *ngIf="(login.password.invalid &&  login.password.touched)||(login.password.invalid &&  submitted)">
+                                <span *ngIf="login.password.errors.required">password is mandatory</span>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="forgot-password">
+                        <button type="submit" style="color:purple;" routerLink="../forgot-password">Forgot
+                            password?</button>
+                    </div>
+                    <div class="button">
+                        <button type="submit" mat-raised-button
+                            style="background-color: purple;color: white;width:100%;">Login</button>
+                    </div>
+                    <div class="forgot-password" routerLink="/register">
+                        <button type="submit">Don't have an account? <span style="color:purple">Sign up</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

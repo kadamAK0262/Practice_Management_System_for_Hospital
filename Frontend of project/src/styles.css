@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.snackbar {
+    color: white;
+    --mdc-snackbar-container-color: #198754;
+    --mat-mdc-snack-bar-button-color: white;
+}
+
+.red_snackbar {
+    color: white;
+    --mdc-snackbar-container-color: red;
+    --mat-mdc-snack-bar-button-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

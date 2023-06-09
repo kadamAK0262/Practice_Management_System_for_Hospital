@@ -1,0 +1,418 @@
+<div style="display:flex;flex-direction:row;border:1px solid black;
+    background-color: papayawhip; border-radius: 10px;height:30vh;
+    align-items: center;width: 100vw;">
+    <div class="card-custom" *ngIf="patientdetail">
+        <!-- <div class="card-imgage" style="min-width: max-content;position: relative;left: 10vh;margin-top: 15px;">
+            <img src="assets/defult-img.jpg" alt="Card image cap"
+                style="border-radius: 50%; width: 132px; height: 124px" />
+        </div> -->
+        <div>
+            <p>
+                <span style="font-weight: 500">Name :{{ patientdetail.firstName }}</span>
+            </p>
+            <p><span style="font-weight: 500">Age :</span> {{ patientdetail.dob|age}}</p>
+            <p><span style="font-weight: 500">Gender :</span> {{ patientdetail.gender }}</p>
+            <p>
+                <span style="font-weight: 500">Contact No. :</span>
+                {{ patientdetail.contactNumber}}
+            </p>
+        </div>
+        <ng-container *ngIf="appointmentsHistory.length!=0">
+            <div>
+                <p><span style="font-weight: 500">BloodGroup : </span>{{bloodgroup}}</p>
+                <p>
+                    <span style="font-weight: 500">Last Consultation Date: </span>{{lastConsultationDate}}
+                </p>
+                <p>
+                    <span style="font-weight: 500">Last Consultation with: </span>{{lastPhysicianEmail}}
+                </p>
+                <p>
+                    <span style="font-weight: 500; word-wrap: break-word">Key Notes on previous Consultation:
+                    </span>{{keyNotes}}
+                </p>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="appointmentsHistory.length==0">
+            <div>
+
+                <p><span style="font-weight: 500">BloodGroup : NA</span></p>
+                <p>
+                    <span style="font-weight: 500">Last Consultation Date: NA</span>
+                </p>
+                <p>
+                    <span style="font-weight: 500">Last Consultation with: NA</span>
+                </p>
+                <p>
+                    <span style="font-weight: 500; word-wrap: break-word">Key Notes on previous Consultation:
+                        NA</span>
+                </p>
+            </div>
+        </ng-container>
+    </div>
+    <div class="card-custom" *ngIf="patientVisitdetail">
+        <div>
+            <p>
+                <span style="font-weight: 500">BloodPressure : </span>{{ patientVisitdetail.bpSystolic}}/{{
+                patientVisitdetail.bpDiastolic}} (Systolic/Diastolic)
+            </p>
+            <p>
+                <span style="font-weight: 500">height :</span> {{ patientVisitdetail.height }} cm
+            </p>
+            <p>
+                <span style="font-weight: 500">Weight :</span>{{ patientVisitdetail.weight }} kg
+            </p>
+            <p>
+                <span style="font-weight: 500">BodyTemperature :</span>
+                {{ patientVisitdetail.bodyTemparature }} Fahrenheit
+            </p>
+        </div>
+        <div>
+            <p>
+                <span style="font-weight: 500">Respiration Rate :</span>
+                {{ patientVisitdetail.respirationRate }} Breaths per minute
+            </p>
+            <p>
+                <span style="font-weight: 500;">Allergies
+                    :</span>
+                {{patientVisitdetail.allergies}}
+            </p>
+            <p>
+                <span style="font-weight: 500"> Physician Email :</span>
+                {{ patientVisitdetail.physicianEmail }}
+            </p>
+            <p>
+                <span style="font-weight: 500"> Nurse Email :</span>
+                {{ patientVisitdetail.nurseEmail }}
+            </p>
+        </div>
+    </div>
+</div>
+<div style="display: flex; flex-direction: column">
+    <h1 style="text-align: center;color:#810CA8; font-family: 'Roboto', sans-serif;">Prescription</h1>
+    <table class="table" style="text-align: center;    width: 56%;
+      margin-left: auto;
+      margin-right: auto;">
+
+        <thead>
+            <tr>
+                <th>Medicine Name</th>
+                <th>Dosage</th>
+                <th>Keywords</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let medicine of medicines">
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Medicine</mat-label>
+                        <input matInput type="text" [(ngModel)]="medicine.prescriptionName">
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Dosage 0-0-0</mat-label>
+                        <input matInput value="" type="text" [(ngModel)]="medicine.dosage">
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Notes</mat-label>
+                        <input matInput value="" type="text" [(ngModel)]="medicine.prescriptionNotes">
+                    </mat-form-field>
+                </td>
+                <td><button mat-mini-fab color="accent" aria-label="" (click)="removeMedicine(medicine)"
+                        style="background-color: #810CA8;">
+                        <mat-icon> <span class="material-icons-outlined">
+                                delete
+                            </span></mat-icon>
+                    </button></td>
+                <!-- <td><button type="button" class="btn btn-danger" >Remove</button></td> -->
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Medicine</mat-label>
+                        <input matInput type="text" [(ngModel)]="newMedicine.prescriptionName">
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Dosage 0-0-0</mat-label>
+                        <input matInput value="" type="text" [(ngModel)]="newMedicine.dosage">
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Notes</mat-label>
+                        <input matInput values="" type="text" [(ngModel)]="newMedicine.prescriptionNotes">
+                    </mat-form-field>
+                </td>
+                <td><button mat-mini-fab color="accent" aria-label="" (click)="addMedicine()"
+                        style="background-color: #810CA8;">
+                        <mat-icon>plus_one</mat-icon>
+                    </button></td>
+                <!-- <td><button type="button" class="btn btn-primary" (click)="addMedicine()">Add</button></td> -->
+            </tr>
+        </tbody>
+    </table>
+    <!-- <button class="submitbtn" (click)="medicinesubmit(newMedicine)">Submit</button> -->
+</div>
+<div style="display: flex; flex-direction: column">
+    <h1 style="text-align: center;color:#810CA8; font-family: 'Roboto', sans-serif;">Tests</h1>
+    <table class="table" style="text-align: center;    width: 56%;
+  margin-left: auto;
+  margin-right: auto;">
+
+        <thead>
+            <tr>
+                <th>Test-Name</th>
+                <th>Results</th>
+                <th>Notes</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr *ngFor="let test of Tests">
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Test-Name</mat-label>
+                        <input matInput type="text" [(ngModel)]="test.testName">
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Results</mat-label>
+                        <input matInput value="" type="text" [(ngModel)]="test.testNotes">
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Notes</mat-label>
+                        <input matInput value="" type="text" [(ngModel)]="test.result">
+                    </mat-form-field>
+                </td>
+                <td><button mat-mini-fab color="accent" aria-label="" (click)="removeTest(test)"
+                        style="background-color: #810CA8;">
+                        <mat-icon> <span class="material-icons-outlined">
+                                delete
+                            </span></mat-icon>
+                    </button></td>
+                <!-- <td><button type="button" class="btn btn-danger" (click)="removeTest(test)">Remove</button>
+                </td> -->
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Test</mat-label>
+                        <input matInput type="text" [(ngModel)]="newTest.testName">
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Test Result</mat-label>
+                        <input matInput value="" type="text" [(ngModel)]="newTest.testNotes">
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Test Notes</mat-label>
+                        <input matInput value="" type="text" [(ngModel)]="newTest.result">
+                    </mat-form-field>
+                </td>
+                <td><button mat-mini-fab color="accent" aria-label="" (click)="addTest()"
+                        style="background-color: #810CA8;">
+                        <mat-icon> <span class="material-icons-outlined">
+                                plus_one
+                            </span></mat-icon>
+                    </button></td>
+                <!-- <td><input type="text" [(ngModel)]="newTest.testName"></td>
+                <td><input type="text" [(ngModel)]="newTest.testNotes"></td>
+                <td><input type="text" [(ngModel)]="newTest.result"></td>
+                <td><button type="button" class="btn btn-primary" >Add</button></td>
+            </tr> -->
+        </tbody>
+    </table>
+    <!-- <button class="submitbtn" (click)="testsubmit(newTest)">Submit</button> -->
+    <button class="done" (click)="submitTestAndPrescription(id,newTest,newMedicine)" mat-stroked-button
+        style="border: 1px solid #2D033B;z-index: 99;">
+        submit
+    </button>
+
+</div>
+
+
+<mat-accordion *ngIf="showContent">
+    <mat-expansion-panel style="background-color: mediumspringgreen">
+        <mat-expansion-panel-header>
+            <mat-panel-title>id</mat-panel-title>
+            <mat-panel-title>Consultation Date</mat-panel-title>
+            <mat-panel-title> Physician Name </mat-panel-title>
+            <mat-panel-title> Diagnosis </mat-panel-title>
+        </mat-expansion-panel-header>
+    </mat-expansion-panel>
+    <div *ngFor="let data of appointmentsHistory;let i = index">
+        <div>
+            <!-- *ngFor="let data of appointmentsHistory; let i = index" -->
+            <mat-expansion-panel>
+                <mat-expansion-panel-header style="background-color: aliceblue">
+                    <mat-panel-title>{{ i + 1 }}</mat-panel-title>
+                    <mat-panel-title>{{data.date}}</mat-panel-title>
+                    <mat-panel-title>{{data.physcianEmail}}</mat-panel-title>
+                    <mat-panel-title>{{data.reason}}</mat-panel-title>
+                </mat-expansion-panel-header>
+                <h2>Patient Details</h2>
+
+                <div style="overflow-y: scroll; overflow-x: hidden">
+                    <div class="previous-health-record">
+                        <div>
+                            <p>
+                                <span style="font-weight: 700">BloodPressure :
+                                </span>{{patientHistoryVisitdetail[i].bpSystolic
+                                }}/{{
+                                patientHistoryVisitdetail[i].bpDiastolic}} (Systolic/Diastolic)
+                            </p>
+                            <p>
+                                <span style="font-weight: 700">height :</span>
+                                {{patientHistoryVisitdetail[i].height }} cm
+                            </p>
+                            <p>
+                                <span style="font-weight: 700">Weight
+                                    :</span>{{patientHistoryVisitdetail[i].weight
+                                }} kg
+                            </p>
+                            <p>
+                                <span style="font-weight: 700">BodyTemperature :</span>
+                                {{ patientHistoryVisitdetail[i].bodyTemparature }} Fahrenheit
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                                <span style="font-weight: 700">Respiration Rate :</span>
+                                {{ patientHistoryVisitdetail[i].respirationRate }} Breaths per minute
+                            </p>
+                            <p>
+                                <span style="font-weight: 700">Allergies
+                                    :</span>{{patientHistoryVisitdetail[i].allergies}}
+                            </p>
+                            <p>
+                                <span style="font-weight: 700"> Physician Email :</span>
+                                {{ patientHistoryVisitdetail[i].physicianEmail }}
+                            </p>
+                            <p>
+                                <span style="font-weight: 700"> Nurse Email :</span>
+                                {{ patientHistoryVisitdetail[i].nurseEmail }}
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex">
+                        <div class="mat-elevation-z8">
+                            <h2 style="justify-content: center">Prescription Details</h2>
+                            <table mat-table [dataSource]="dataSourcePrescription[i]" matSort
+                                style="background-color: antiquewhite">
+                                <!-- ID Column -->
+                                <ng-container matColumnDef="id">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+                                    <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+                                </ng-container>
+
+                                <!-- Progress Column -->
+                                <ng-container matColumnDef="progress">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                        Prescription Name
+                                    </th>
+                                    <td mat-cell *matCellDef="let row">
+                                        {{ row.prescriptionName }}
+                                    </td>
+                                </ng-container>
+
+                                <!-- Name Column -->
+                                <ng-container matColumnDef="name">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Dosage</th>
+                                    <td mat-cell *matCellDef="let row">{{ row.dosage }}</td>
+                                </ng-container>
+
+                                <!-- Fruit Column -->
+                                <ng-container matColumnDef="fruit">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                        Prescription Notes
+                                    </th>
+                                    <td mat-cell *matCellDef="let row">
+                                        {{ row.prescriptionNotes }}
+                                    </td>
+                                </ng-container>
+
+                                <tr mat-header-row *matHeaderRowDef="displayedColumnsPrescription"></tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumnsPrescription"></tr>
+
+                                <!-- Row shown when there is no matching data. -->
+                                <!-- <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+              </tr> -->
+                            </table>
+
+                            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"
+                                aria-label="Select page of users"></mat-paginator>
+                        </div>
+
+                        <div class="mat-elevation-z8">
+                            <h2 style="justify-content: center">Test Details</h2>
+                            <table mat-table [dataSource]="dataSourceTest[i]" matSort
+                                style="background-color: antiquewhite">
+                                <!-- ID Column -->
+                                <ng-container matColumnDef="id">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+                                    <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+                                </ng-container>
+
+                                <!-- Progress Column -->
+                                <ng-container matColumnDef="progress">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                        Test Name
+                                    </th>
+                                    <td mat-cell *matCellDef="let row">{{ row.testName }}</td>
+                                </ng-container>
+
+                                <!-- Name Column -->
+                                <ng-container matColumnDef="fruit">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                        Test Notes
+                                    </th>
+                                    <td mat-cell *matCellDef="let row">{{ row.result }}</td>
+                                </ng-container>
+
+                                <!-- Fruit Column -->
+                                <ng-container matColumnDef="name">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                        Test Result
+                                    </th>
+                                    <td mat-cell *matCellDef="let row">{{ row.testNotes }}</td>
+                                </ng-container>
+
+                                <tr mat-header-row *matHeaderRowDef="displayedColumnsTest"></tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumnsTest"></tr>
+
+                                <!-- Row shown when there is no matching data. -->
+                                <!-- <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+              </tr> -->
+                            </table>
+
+                            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"
+                                aria-label="Select page of users"></mat-paginator>
+                        </div>
+                    </div>
+                </div>
+                <!-- <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+      </mat-form-field> -->
+            </mat-expansion-panel>
+        </div>
+    </div>
+</mat-accordion>
+<button class="previoushealth" (click)="toggleContent()" mat-stroked-button style="border: 1px solid #2D033B;">
+    Previous Health History
+</button>

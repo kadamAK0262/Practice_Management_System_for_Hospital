@@ -1,0 +1,317 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.toolbar_btn {
+    border: 1px solid black !important;
+    margin-right: 20px;
+}
+
+.mat-tab {
+    color: rgb(253, 251, 251);
+}
+
+mat-toolbar {
+    background-color: antiquewhite;
+    height: 10vh;
+    position: sticky !important;
+    border: 1px solid violet;
+    margin-top: -10px;
+}
+
+.tabs:hover {
+    color: #30d2a8;
+}
+
+.x {
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.ak {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://img.freepik.com/free-photo/my-daughter-isn-t-afraid-pay-visit-here_329181-7634.jpg?w=996&t=st=1679229132~exp=1679229732~hmac=861621585ad9ce18533bed2b912ccc4d4908275b83c95db67154d58aa2c5b769');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    opacity: 9;
+    background-position: center;
+    height: 100%;
+
+
+}
+
+
+
+.c1btn {
+    size: 500px;
+    font-size: 20px;
+    border-radius: 20px;
+    background-color: #3fbbc0;
+    border: 2px solid #141514;
+    padding: 10px 10px;
+    margin-top: 20px;
+    margin-left: 120px;
+    margin-bottom: 50px;
+
+
+}
+
+.c1div {
+    margin-top: 0px;
+    margin-left: 250px;
+    margin-right: 490px;
+    background-color: rgba(237, 237, 237, 0);
+    border-radius: 10%;
+    padding-top: 10px;
+
+}
+
+.c1div span {
+    color: azure;
+    font-size: 1.5rem;
+    margin-left: 13px;
+
+}
+
+.content1 span {
+
+    padding-top: 40px;
+    padding-left: 50px;
+    padding-right: 700px;
+    line-height: 0;
+    margin-top: -80px;
+    font-size: 2rem;
+    font-family: "ubumtu", sans-serif;
+}
+
+.h1 {
+    color: #7ce7ef;
+    margin-left: 550px;
+    margin-right: 450px;
+    font-style: italic;
+    background-color: rgba(30, 223, 156, 0);
+    border-radius: 10px;
+    width: 29%;
+
+
+}
+
+.heading {
+    color: #ffffff;
+    margin-left: 100px;
+    margin-right: 30px;
+    margin-top: 100px;
+    font-style: inherit;
+
+    font-size: 1.7rem;
+
+    border-radius: 10px;
+    width: 36%;
+    line-height: 1.3;
+
+}
+
+
+button {
+    margin: 20px;
+}
+
+.toolbar_btn {
+    width: 130px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+        7px 7px 20px 0px rgba(0, 0, 0, .1),
+        4px 4px 5px 0px rgba(0, 0, 0, .1);
+    outline: none;
+}
+
+/* 3 */
+.btn-1 {
+    background: rgb(0, 172, 238);
+    background: linear-gradient(0deg, rgba(0, 172, 238, 1) 0%, rgba(2, 126, 251, 1) 100%);
+    width: 130px;
+    height: 40px;
+    line-height: 42px;
+    padding: 0;
+    border: none;
+
+}
+
+.btn-1 span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.btn-1:before,
+.btn-1:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    top: 0;
+    background: rgba(2, 126, 251, 1);
+    transition: all 0.3s ease;
+}
+
+.btn-1:before {
+    height: 0%;
+    width: 2px;
+}
+
+.btn-1:after {
+    width: 0%;
+    height: 2px;
+}
+
+.btn-1:hover {
+    background: transparent;
+    box-shadow: none;
+}
+
+.btn-1:hover:before {
+    height: 100%;
+}
+
+.btn-1:hover:after {
+    width: 100%;
+}
+
+.btn-1 span:hover {
+    color: rgba(2, 126, 251, 1);
+}
+
+.btn-1 span:before,
+.btn-1 span:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: 0;
+    background: rgba(2, 126, 251, 1);
+    transition: all 0.3s ease;
+}
+
+.btn-1 span:before {
+    width: 2px;
+    height: 0%;
+}
+
+.btn-1 span:after {
+    width: 0%;
+    height: 2px;
+}
+
+.btn-1 span:hover:before {
+    height: 100%;
+}
+
+.btn-1 span:hover:after {
+    width: 100%;
+}
+
+/* 
+.btn-1 {
+    background: #b621fe;
+    border: none;
+    z-index: 1;
+}
+
+.btn-1:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    background-color: #663dff;
+    border-radius: 5px;
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+        7px 7px 20px 0px rgba(0, 0, 0, .1),
+        4px 4px 5px 0px rgba(0, 0, 0, .1);
+    transition: all 0.3s ease;
+}
+
+.btn-1:hover {
+    color: #fff;
+}
+
+.btn-1:hover:after {
+    left: 0;
+    width: 100%;
+}
+
+.btn-1:active {
+    top: 2px;
+}
+ */
+
+
+
+/* *{ */
+/* margin:0;
+    padding:0;
+    box-sizing:border-box;
+    }
+    body{
+    background: rgb(72, 190, 208);
+    margin: 100px auto;
+    } */
+/* #slider{
+    overflow:hidden;
+    padding: 10px;
+    background: white;
+    margin:0 auto;
+    width:80%;
+    height: 400px;
+    }
+    .slides{
+    animation-duration:1s;
+    display:none;
+    overflow:hidden;
+    animation-name:fade;
+    }
+    img{
+    width:100%;
+    height: 350px;
+    }
+    #dot{
+    margin:0 auto;
+    text-align:center;
+    }
+    .dot{
+    background:#d3d3d3;
+    padding:8px;
+    margin:10px 5px;
+    display:inline-block;
+    border-radius:50%;
+    }
+    .active{
+    background:black;
+    }
+    @keyframes fade{
+    from{
+      opacity:0.4;
+    }
+    to{
+      opacity:1;
+    }
+    }
+    @media (max-width:567px){
+    #slider{
+      width:100%;
+    }
+    } */

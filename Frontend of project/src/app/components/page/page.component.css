@@ -1,0 +1,13 @@
+h1,
+p {
+  text-align: center;
+  font-weight: 400;
+}
+
+h1 {
+  padding-top: 50px;
+}
+
+p {
+  padding-bottom: 50px;
+}

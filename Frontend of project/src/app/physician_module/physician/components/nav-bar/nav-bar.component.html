@@ -1,0 +1,91 @@
+<mat-toolbar style="background-color: #000000">
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+        <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+    </button>
+
+    <span>PMS</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button matTooltip="Appointments" [matMenuTriggerFor]="menu"
+        aria-label="Example icon-button with a menu" routerLinkActive="active">
+        <mat-icon><span class="material-symbols-outlined">
+                pending_actions
+            </span></mat-icon>
+
+    </button>
+    <div class="appointmentlist">
+        <mat-menu #menu="matMenu">
+            <button routerLink="/physician/appointments" routerLinkActive="active" mat-menu-item>
+                <mat-icon>pending_actions</mat-icon>
+
+                <span>Appointments</span>
+            </button>
+
+            <button routerLink="/physician/pending-appointments" routerLinkActive="active" mat-menu-item>
+                <mat-icon>pending</mat-icon>
+                <span> Pending Appointments</span>
+            </button>
+        </mat-menu>
+    </div>
+    <button mat-icon-button aria-label="" routerLinkActive="active" [matMenuTriggerFor]="menu1">
+        <mat-icon><span class="material-symbols-outlined">
+                more_vert
+            </span></mat-icon>
+    </button>
+    <mat-menu #menu1="matMenu">
+        <div mat-menu-item *ngIf="auth.user$ | async as user">
+            <mat-icon>person</mat-icon>{{ user.name }}
+        </div>
+        <button mat-menu-item (click)="auth.logout()"><mat-icon>logout</mat-icon>Logout</button>
+    </mat-menu>
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z2" style="width: 17%;font-size:smaller;">
+        <img class="avatar mat-elevation-z8" src="../../../../../assets/defult-img.jpg" />
+
+        <h4 class="name">Physician</h4>
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button" routerLink="/physician/dashboard" routerLinkActive="active">
+            <mat-icon>dashboard</mat-icon>
+            <span>Dashboard</span>
+        </button>
+        <button mat-button class="menu-button" routerLink="/physician/appointments" routerLinkActive="active">
+            <mat-icon>pending_actions</mat-icon>
+            <span>Accepted Appointments</span>
+        </button>
+        <button mat-button class="menu-button" routerLink="/physician/pending-appointments" routerLinkActive="active">
+            <mat-icon>pending</mat-icon>
+            <span>Pending Appointments</span>
+        </button>
+        <mat-divider></mat-divider>
+    </mat-sidenav>
+    <mat-sidenav-content style="background-color: antiquewhite;width:100%;">
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+<!-- <div class="notfybox">
+      <div class="notification-card-container" *ngIf="showNotificationCard">
+      <button style="float: right;color: black;" mat-button color="primary" (click)="showNotificationCard = false">X</button>
+    <div style="background-color: rgb(40, 119, 119);" class="notification-message">You have notifications</div>
+    <mat-card   *ngFor="let details of patientdetails">
+      <mat-card-actions>
+      <mat-card-content>
+        <p style="margin: 0px;">Patient email : {{ details.email }}</p>
+        <p style="margin: 0px;">Patient phone : {{ details.phone }}</p>
+        <p style="margin: 0px;">Patient Address : {{ details.address }}</p>
+      </mat-card-content>
+     
+    </mat-card-actions>
+    <div class="container-btn" style="display: inline;">
+      <button style="float: left; margin: 10px;" id="card-button" mat-raised-button color="primary"  >Accept</button>
+     <button style="float: right;margin: 10px;" id ="card-button1"  mat-raised-button color="accent">Reject</button>
+    </div>
+    </mat-card>
+  </div>
+  </div> -->

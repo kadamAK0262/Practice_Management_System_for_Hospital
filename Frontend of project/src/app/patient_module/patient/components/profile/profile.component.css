@@ -1,0 +1,28 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+mat-form-field {
+    margin: 10px;
+    width: 20vw;
+}
+
+mat-radio-group {
+    margin: 10px;
+    width: 20vw;
+}
+
+.registration {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.b1 {
+    left: 5%;
+}
+
+.b2 {
+    left: 60%;
+}

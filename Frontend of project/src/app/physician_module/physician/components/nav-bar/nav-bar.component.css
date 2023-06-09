@@ -1,0 +1,214 @@
+.example-spacer {
+    flex: 1 1 auto;
+
+}
+
+.nav-bar {
+    background-color: #3fbbc0;
+}
+
+#list-btn {
+    background-color: rgb(243, 239, 239);
+    color: black;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 12px;
+    position: relative;
+    text-align: justify;
+    display: block;
+}
+
+#nav-toolbar {
+    height: 60px;
+    background-color: white;
+}
+
+/* #notficationID{
+  right: 2px;butt
+  top: -3px;
+  font-size: 17px;
+} */
+
+
+
+.demo-section+.demo-section {
+    margin-top: 16px;
+
+}
+
+
+/* Notfication card css */
+
+.notification-button {
+    height: 40px;
+    width: 40px;
+}
+
+.notification-card-container {
+    overflow-y: scroll;
+    display: inline-block;
+    text-overflow: ellipsis;
+    margin-top: 300px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    height: 500px;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    width: 250px;
+    z-index: 9999;
+}
+
+::-webkit-scrollbar {
+    width: 15px;
+    height: 15px;
+}
+
+::-webkit-scrollbar-track {
+    border: 1px rgb(20, 20, 20);
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(73, 73, 73);
+}
+
+.notification-card {
+    display: inline-block;
+    height: 130px;
+    width: 300px;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding-top: 2px;
+}
+
+.notification-message {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.mat-card-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 8px;
+}
+
+/* .notfybox{
+    height: 400px;
+  }
+   */
+
+/* notfication card end */
+
+.example-spacer {
+    flex: 1 1 auto;
+
+}
+
+.example-sidenav-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+
+}
+
+.example-is-mobile .example-toolbar {
+    position: fixed;
+    /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+    z-index: 2;
+}
+
+h1.example-app-name {
+    margin-left: 8px;
+}
+
+.example-sidenav-container {
+    /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+       causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+    flex: 1;
+}
+
+.example-is-mobile .example-sidenav-container {
+    /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+       `<body>` to be our scrolling element for mobile layouts. */
+    flex: 1 0 auto;
+}
+
+
+mat-toolbar {
+    background: #c6cdd5;
+    color: white;
+}
+
+mat-sidenav {
+    margin: 16px;
+    width: 200px;
+    border-right: none;
+    background: white;
+    ;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+}
+
+.content {
+    height: calc(100vh - 130px);
+    border-radius: 10px;
+    margin: 16px;
+    margin-left: 32px;
+    padding: 16px;
+    overflow: auto;
+}
+
+mat-sidenav-container {
+    height: calc(100vh - 65px);
+}
+
+.menu-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+
+    /* mat-icon {
+      margin-right: 8px;
+    } */
+}
+
+.avatar {
+    margin-top: 16px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.name {
+    margin-top: 15px;
+    font-family: 'Roboto', sans-serif;
+    font-size: medium;
+    font-style: initial;
+    font-weight: 700;
+}
+
+.designation {
+    margin-top: 15px;
+    font-family: 'Roboto', sans-serif;
+    font-size: medium;
+    font-style: initial;
+    font-weight: 700;
+}
+
+mat-divider {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.active {
+    background-color: rgb(186, 143, 205);
+
+}

@@ -1,0 +1,26 @@
+<br>
+<br>
+<br>
+<h1 style="align-items: center;color: purple;margin-left: 45%;"> Basic Details</h1>
+<mat-card style="align-items: center;width: 800px;margin-left: 25%;">
+    <div>
+        <div style="float:left;padding-top: 5%;padding-right: 50px;">
+            <mat-label><b>Title:- </b>{{patient.title}}</mat-label><br /><br />
+            <mat-label><b>First Name:- </b>{{patient.firstName}}</mat-label><br /><br />
+            <mat-label><b>Last Name:- </b>{{patient.lastName}}</mat-label><br /><br />
+            <mat-label><b>Date Of Birth:- </b>{{patient.dob}}</mat-label><br /><br />
+        </div>
+        <div style="float: right;padding-top: 5%;">
+            <mat-label><b>Gender:- </b>{{patient.gender}}</mat-label><br /><br />
+            <mat-label><b>Mobile Number:- </b>{{patient.contactNumber}}</mat-label><br /><br />
+            <mat-label><b>Email:- </b>{{patient.email}}</mat-label><br /><br />
+            <mat-label><b>Address:- </b>{{patient.address}}</mat-label><br /><br />
+        </div>
+    </div>
+    <br>
+    <div>
+        <button style="align-items: center;margin-bottom: 15%;" mat-raised-button color="primary"
+            (click)="openDialog()">Update</button>
+
+    </div>
+</mat-card>

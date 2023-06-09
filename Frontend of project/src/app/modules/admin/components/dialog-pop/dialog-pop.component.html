@@ -1,0 +1,28 @@
+<button mat-icon-button matDialogClose style="float:right;margin:15px 15px 0 0 ;">
+    <mat-icon>close</mat-icon>
+</button>
+<div class="dialog">
+    <mat-dialog-content>
+
+        <header>
+            <h1 style="color:#16e5a1">Update Physician</h1>
+            <mat-divider></mat-divider>
+        </header>
+        <div>
+            <mat-form-field appearance="fill" style="margin-top:15px;">
+                <mat-label>Enter a date range</mat-label>
+                <mat-date-range-input [rangePicker]="picker" [formGroup]="range" [min]="currentDate">
+                    <input matStartDate placeholder="Start date" formControlName="start">
+                    <input matEndDate placeholder="End date" formControlName="end">
+                </mat-date-range-input>
+                <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions class="qwerty">
+        <button mat-stroked-button color="primary" (click)="update()" matDialogClose>Update</button>
+        <button mat-stroked-button color="warn" matDialogClose>Cancel</button>
+    </mat-dialog-actions>
+</div>

@@ -1,0 +1,60 @@
+<mat-toolbar style="background-color: #000000">
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+        <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+    </button>
+
+    <span>PMS</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"
+        routerLink="/patient/bookappointment" routerLinkActive="active">
+        <img src="../../../../../assets/calendar.png" />
+    </button>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"
+        routerLink="/patient/health-records" routerLinkActive="active">
+        <mat-icon><span class="material-symbols-outlined">group</span></mat-icon>
+    </button>
+
+    <button mat-icon-button class="example-icon" aria-label="" routerLinkActive="active" [matMenuTriggerFor]="menu1">
+        <mat-icon><span class="material-symbols-outlined">
+                more_vert
+            </span></mat-icon>
+    </button>
+    <mat-menu #menu1="matMenu">
+        <!-- <button>
+            <mat-icon>person</mat-icon>
+        </button> -->
+        <button mat-menu-item (click)="logout()"><mat-icon>logout</mat-icon>Logout</button>
+    </mat-menu>
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z2" style="width: 17%;font-size:smaller;">
+        <img class="avatar mat-elevation-z8" src="../../../../../assets/defult-img.jpg" />
+
+        <h4 class="name">{{patientDetails.firstName+" "+patientDetails.lastName}}</h4>
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button" routerLink="/patient/home" routerLinkActive="active">
+            <mat-icon>home</mat-icon>
+            <span>Home</span>
+        </button>
+        <button mat-button class="menu-button" routerLink="/patient/profile" routerLinkActive="active">
+            <mat-icon>person</mat-icon>
+            <span>Profile</span>
+        </button>
+        <button mat-button class="menu-button" routerLink="/patient/bookappointment" routerLinkActive="active">
+            <mat-icon>calendar_today</mat-icon>
+            <span>Book Appointment</span>
+        </button>
+        <button mat-button class="menu-button" routerLink="/patient/health-records" routerLinkActive="active">
+            <mat-icon>person</mat-icon>
+            <span>Health-Records</span>
+        </button>
+        <mat-divider></mat-divider>
+    </mat-sidenav>
+    <mat-sidenav-content style="background-color: antiquewhite;width:100%;">
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

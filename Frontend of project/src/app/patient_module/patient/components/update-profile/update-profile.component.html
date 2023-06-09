@@ -1,0 +1,83 @@
+<section style="background-color: rgba(217, 214, 209, 0.518);
+border: 2px solid purple;">
+
+    <div class="container">
+        <div style="display: flex; justify-content: space-evenly" @fadein>
+
+            <div class="Update">
+                <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+                    <br>
+                    <br>
+                    <div style="display: flex; justify-content: space-between;">
+
+                        <mat-form-field appearance="outline">
+                            <mat-label>FirstName</mat-label>
+                            <input matInput type="text" placeholder="First Name" formControlName="firstName"
+                                id="firstName" required />
+                            <mat-error
+                                *ngIf="(register.firstName.invalid &&  register.firstName.touched)||(register.firstName.invalid &&  submitted)">
+                                <span *ngIf="register.firstName.errors.required">firstname is mandatory</span>
+                            </mat-error>
+                            <!-- <mat-hint align="end">Not more then 10 characters long.</mat-hint> -->
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>LastName</mat-label>
+                            <input matInput type="text" placeholder="Last Name" formControlName="lastName" id="lastName"
+                                required />
+                            <mat-error
+                                *ngIf="(register.lastName.invalid &&  register.lastName.touched)||(register.lastName.invalid &&  submitted)">
+                                <span *ngIf="register.lastName.errors.required">lastname is mandatory</span>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <mat-form-field appearance="outline">
+                            <mat-label>E-Mail</mat-label>
+                            <input matInput type="email" placeholder="Email" formControlName="email" id="email"
+                                email="true" />
+                            <!-- <mat-hint align="end">Not more then 10 characters long.</mat-hint> -->
+                            <mat-error
+                                *ngIf="(register.email.invalid &&  register.email.touched)||(register.email.invalid &&  submitted)">
+                                <span *ngIf="register.email.errors.required">email is mandatory</span>
+                                <span *ngIf="register.email.errors.email">invalid email!</span>
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Contact</mat-label>
+                            <input matInput type="contact" placeholder="Contact Number" formControlName="contactNumber"
+                                id="contactNumber" required />
+                            <mat-error
+                                *ngIf="(register.contactNumber.invalid &&  register.contactNumber.touched)||(register.contactNumber.invalid &&  submitted)">
+                                <span *ngIf="register.contactNumber.errors.required">contact is mandotory</span>
+                                <span *ngIf="register.contactNumber.errors.pattern">lenght must be 10 and starts with
+                                    6-9</span>
+                            </mat-error>
+                            <!-- <mat-hint align="end">Not more then 10 characters long.</mat-hint> -->
+                        </mat-form-field>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between;">
+                        <mat-form-field class="Address" appearance="outline" style="width: 100%">
+                            <mat-label>Address</mat-label>
+                            <textarea matInput formControlName="address" id="address"></textarea>
+                            <mat-error
+                                *ngIf="(register.address.invalid &&  register.address.touched)||(register.address.invalid &&  submitted)">
+                                <span *ngIf="register.address.errors.required">address is mandatory</span>
+                            </mat-error>
+                        </mat-form-field>
+                        <!-- <input class="ng-hide" id="input-file-id" multiple type="file" />
+            <label for="input-file-id" class="md-button md-raised md-primary"></label> -->
+                    </div>
+                    <!-- <button mat-raised-button color="primary">Register</button> -->
+                    <div>
+                        <button class="updatebtn" style="width:10vw; height: 2vw;text-align: center;
+                background-color: purple;" btn-primary mat-raised-button color="primary" routerLinkActive="active">
+                            Update
+                        </button>
+                        <mat-error *ngIf="">Already Registered</mat-error>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

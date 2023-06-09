@@ -1,0 +1,57 @@
+<!-- style="background-color:rgba(47, 79, 79, 0.509);" -->
+<div class=searchDiv>
+    <div style="margin: auto 0;">
+        <h3>Book Appointment</h3>
+    </div>
+    <div>
+        <input type="text" placeholder="Search Physician" class="inputBtn" (keyup)="applyFilter($event)" #input>
+    </div>
+</div>
+<mat-divider style="margin-bottom: 10px;"></mat-divider>
+<div style="display: flex;justify-content: left;margin-left:10px;">
+    <h3>Select Physician</h3>
+</div>
+<div class>
+    <div>
+        <div fxLayout=" row" fxLayoutGap="10px grid" style="
+        display: flex;
+        margin: 0px -143px -10px 0px;
+        box-sizing: border-box; 
+      ">
+            <div fxFlex="33.3%" fxFlex.xs="100%" fxFlex.sm="35%" *ngFor="let p of this.dataSource.filteredData">
+                <mat-card class="mat-elevation-z4">
+                    <mat-card-header style="line-height: 1.8;">
+                        <!-- <div mat-card-avatar class="example-header-image"></div> -->
+                        <mat-card-title style="letter-spacing:1px">Dr. {{ " "+" "+p.physicianName|uppercase}}
+                        </mat-card-title><br />
+                        <mat-card-subtitle>{{p.speciality|uppercase}}</mat-card-subtitle><br />
+                        <mat-card-subtitle> {{"Email : "+p.email}}</mat-card-subtitle><br />
+                        <mat-card-subtitle>Available From : {{p.startDate}}</mat-card-subtitle>
+                        <mat-card-subtitle>Available Till : {{p.endDate}}</mat-card-subtitle>
+                    </mat-card-header>
+
+                    <mat-card-footer style="text-align: right">
+                        <mat-card-actions fxFlexAlign="end">
+                            <button mat-button class="end" (click)="openDialog(p.email,p.startDate,p.endDate)">
+                                Book Appointment
+                            </button>
+                        </mat-card-actions>
+                    </mat-card-footer>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <mat-paginator #paginator (page)="handlePageEvent($event)" [length]="length" [pageSize]="pageSize"
+        [disabled]="false" [showFirstLastButtons]="true" [pageSizeOptions]="[10, 25, 50, 100]" [hidePageSize]="false"
+        [pageIndex]="pageIndex" aria-label="Select page" showPageSizeOptions="true">
+    </mat-paginator>
+</div>
+<ng-container *ngIf="this.dataSource.filteredData.length<=0">
+    <div>
+        <mat-card style="height:10vh;margin:1vw;text-align: center;">
+            <h3> No Matching Data Found For -- {{input.value}}</h3>
+        </mat-card>
+    </div>
+</ng-container>

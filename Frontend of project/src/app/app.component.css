@@ -1,0 +1,15 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.toolbar_btn {
+    border: 1px solid black !important;
+}
+
+.mat-tab {
+    color: black;
+}
+
+.tabs:hover {
+    color: #30d2a8 !important;
+}

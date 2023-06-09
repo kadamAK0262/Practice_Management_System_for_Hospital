@@ -1,0 +1,83 @@
+<div class="pres">
+    <h3>Test Details</h3>
+</div>
+<div class="example-table-container">
+    <div class="table_div">
+
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+            <ng-container matColumnDef="demo-testname">
+                <th mat-header-cell *matHeaderCellDef>Test</th>
+                <td mat-cell *matCellDef="let element"> {{element.testName}}</td>
+            </ng-container>
+            <!-- Name Column -->
+            <ng-container matColumnDef="demo-result">
+                <th mat-header-cell *matHeaderCellDef> Status </th>
+                <td mat-cell *matCellDef="let element"> {{element.testNotes}} </td>
+            </ng-container>
+            <!-- Weight Column -->
+            <ng-container matColumnDef="demo-status">
+                <th mat-header-cell *matHeaderCellDef> Result </th>
+                <td mat-cell *matCellDef="let element"> {{element.result}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div><br>
+    <mat-paginator [pageSizeOptions]="[5, 15, 30]" showFirstLastButtons aria-label="Select page of periodic elements"
+        class="tablecss">
+    </mat-paginator>
+</div><br>
+
+<mat-card-footer>
+    <mat-card-actions fxFlexAlign="end">
+        <button mat-button class="end" style="height: fit-content; width: fit-content" mat-dialog-close>
+            <b>Close</b>
+        </button>
+
+        <!-- <div class="details">
+    <h1>Test Details</h1> -->
+        <!-- <div class="div1">
+        <mat-label><b>Appointment Id : </b>A001</mat-label><br><br>
+        <mat-label><b>Height : </b>150cm</mat-label><br><br>
+        <mat-label><b>Weight : </b>50</mat-label><br><br>
+        <mat-label><b>Blood pressure : </b>120/80</mat-label><br><br>
+        <mat-label><b>Key Notes : </b>vydgcsvdhbshdbvjbsub</mat-label><br><br><br><br>
+    </div>
+    <div class="div2">
+        <mat-label><b>Temparature : </b>100</mat-label><br><br>
+        <mat-label><b>Respiration rate : </b>50</mat-label><br><br>
+        <mat-label><b>Consulation with:</b>Dr.john</mat-label><br>
+    </div><br>
+    <pre></pre><br><br><br>
+    <div class="test"> -->
+
+        <!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table"> -->
+        <!-- Symbol Column -->
+        <!-- <ng-container matColumnDef="demo-testname">
+            <th mat-header-cell *matHeaderCellDef>Test</th>
+            <td mat-cell *matCellDef="let element">{{ element.testName }}</td>
+        </ng-container> -->
+        <!-- Weight Column -->
+        <!-- <ng-container matColumnDef="demo-status">
+            <th mat-header-cell *matHeaderCellDef>Status</th>
+            <td mat-cell *matCellDef="let element">{{ element.testNotes}}</td>
+        </ng-container> -->
+        <!-- Name Column -->
+        <!-- <ng-container matColumnDef="demo-result">
+            <th mat-header-cell *matHeaderCellDef>Result</th>
+            <td mat-cell *matCellDef="let element">{{ element.result }}</td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <br>
+    <mat-paginator [pageSizeOptions]="[2,5,10]" showFirstLastButtons></mat-paginator>
+    <br>
+    <div class="Prescription">
+        <button color="primary" mat-raised-button mat-dialog-close>
+            <span>Close</span>
+        </button>
+    </div>
+</div> -->

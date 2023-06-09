@@ -1,0 +1,216 @@
+<!-- <div #pdfContent></div> -->
+
+<body #pdfContent>
+  <div class="container" id="container" style="background-color: white;">
+    <span style="display: inline;float: right;"><button mat-icon-button matTooltip="Download PDF"
+        (click)="generatePDF(appointmentdetails.physcianEmail)" type="submit" style="width: 100px;"><mat-icon
+          matTooltip="View PDF"><span class="material-icons-outlined">
+            download_for_offline
+          </span></mat-icon></button></span>
+    <header>
+      <h1 style="text-align: center; margin-bottom: 1px;">PMS Management sysytem</h1>
+      <address style="text-align: center;">1-178,Mumbai,MH</address>
+      <img src="../../../../../assets/headerlogo.png" alt="Logo" class="logo">
+    </header>
+    <table style="border: 1px solid black;">
+      <tr>
+        <td rowspan="3" style="width: 85%;">
+          Please be advised that the decision to allow an applicant to continue to retain his/her New Mexico driver’s
+          license is contingent
+          upon the information provided in this medical report. It is imperative, and in the best interest of the
+          applicant and the motoring
+          public, that all questions be answered completely. This report may be reviewed by a physician or panel of
+          physicians, who may
+          request additional medical information. This form will become part of the applicant’s record, is for
+          confidential use of the
+          physician, panel or division, and may not be divulged to any person or used as evidence in any trial.
+          <br>
+          <h4>ALL INFORMATION MUST BE TYPED OR CLEARLY PRINTED</h4>
+        </td>
+        <td>
+          <h4 style="    margin-top: 0px; margin-bottom: 0px;">
+            Medical Advisory Board Use Only
+          </h4>
+        </td>
+
+      </tr>
+      <tr>
+        <td style="text-align: center;">
+          <input type="checkbox" id="myCheckbox" name="myCheckbox">
+          <label for="myCheckbox">Approved</label>
+
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">
+          <input type="checkbox" id="myCheckbox" name="myCheckbox">
+          <label for="myCheckbox">Denied</label>
+        </td>
+      </tr>
+    </table>
+    <div style="border: 1px solid black; border-top: none; background-color: grey; margin-top: 0px;">
+      <h1 style="text-align: center;  margin-top: 0px;">Patient Details</h1>
+    </div>
+    <table>
+      <tr>
+        <td style="width: 600px; border: 1px solid black; height: 60px;text-align: center;">
+          Patient Name : {{patientDetails.title}}.{{patientDetails.firstName}} {{patientDetails.lastName}}
+        </td>
+        <td style="border: 1px solid black; width: 350px;text-align: center">
+          Age :{{patientDetails.dob | age}}
+        </td>
+        <td style="border: 1px solid black; width: 550px;text-align: center">
+          Doctor Name : {{appointmentdetails.physcianEmail}}
+        </td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <td style="width: 750px; border: 1px solid black; height: 60px;text-align: center">
+          Consultant Date : {{appointmentdetails.date}}
+
+        </td>
+        <td style="border: 1px solid black; width: 750px;text-align: center">
+          Suffering With : {{appointmentdetails.reason}}
+        </td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <td style="width: 375px; border: 1px solid black; height: 60px;text-align: center">
+          Telephone Number : {{patientDetails.contactNumber}}
+
+        </td>
+        <td style="border: 1px solid black; width: 375px;text-align: center">
+          E-mail Address : {{patientDetails.email}}
+        </td>
+        <td style="width: 375px; border: 1px solid black; height: 60px;text-align: center">
+          Gender : {{patientDetails.gender}}
+
+        </td>
+        <td style="border: 1px solid black; width: 375px;text-align: center">
+          Address : {{patientDetails.address}}
+        </td>
+      </tr>
+    </table>
+    <div style="border: 1px solid black; border-top: none; background-color: grey; margin-top: 0px;text-align: center">
+      <h1 style="text-align: center;  margin-top: 0px;">Basic Diagnoses</h1>
+    </div>
+    <table>
+      <tr>
+        <td style="width: 1200px; border: 1px solid black; height: 60px; text-align: center;text-align: center">
+          Height : {{docvisitdetails.height}}
+        </td>
+        <td style="border: 1px solid black; width: 350px;text-align: center">
+          Weight : {{docvisitdetails.weight}}
+        </td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <td style="width: 750px; border: 1px solid black; height: 60px;text-align: center">
+          Body Temperature : {{docvisitdetails.respirationRate}}
+
+        </td>
+        <td style="border: 1px solid black; width: 750px;text-align: center">
+          Respiration Rate : {{docvisitdetails.respirationRate}}
+        </td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <td style="width: 375px; border: 1px solid black; height: 60px;text-align: center">
+          Blood Pressure : {{docvisitdetails.height}}
+
+        </td>
+        <td style="border: 1px solid black; width: 375px;text-align: center">
+          Key Notes : {{docvisitdetails.keyNotes}}
+        </td>
+        <td style="width: 375px; border: 1px solid black; height: 60px;text-align: center">
+          Nurse Name :{{docvisitdetails.nurseEmail}}
+
+        </td>
+        <td style="border: 1px solid black; width: 375px;text-align: center">
+          <!-- Number Driver’s License Number -->
+          Blood Group : {{docvisitdetails.bloodGroup}}
+        </td>
+      </tr>
+    </table>
+    <div style="border: 1px solid black; border-top: none; background-color: grey; margin-top: 0px;">
+      <h1 style="text-align: center;  margin-top: 0px;">Physician’s Report
+      </h1>
+    </div>
+
+    <!--     <table>
+      <tr>
+        <td>2. How long have you treated this patient? Frequency? Date of last examination</td>
+      </tr>
+    </table> -->
+    <div class="t">
+      <div class="test" style="display: inline-table;">
+        <table style=" border:1px solid black;">
+
+          <thead>
+            <tr>
+              <td colspan="3" style="text-align:center; border:1px solid black; width: 750px;">
+                <h2>TEST DETAILS</h2>
+              </td>
+
+            </tr>
+            <tr>
+              <th style=" border: 1px solid black;">Test Name</th>
+              <th style=" border: 1px solid black;">Result</th>
+              <th style=" border: 1px solid black;">Keywords</th>
+            </tr>
+
+          </thead>
+
+          <tbody>
+            <tr style="text-align: center;" *ngFor="let test of Test">
+              <td style=" border: 1px solid black;">{{test.testName}}</td>
+              <td style=" border: 1px solid black;">{{test.result}}</td>
+              <td style=" border: 1px solid black;">{{test.testNotes}}</td>
+            </tr>
+
+          </tbody>
+
+
+        </table>
+      </div>
+      <div class="Prescription" style="display: inline-table;">
+        <table style=" border:1px solid black;">
+
+          <thead>
+            <tr>
+              <td colspan="3" style="text-align:center; border:1px solid black; width: 750px;">
+                <h2>Prescription</h2>
+              </td>
+            </tr>
+            <tr>
+              <th style=" border: 1px solid black;text-align: center;">Medicine Name</th>
+              <th style=" border: 1px solid black;text-align: center;">Dosage</th>
+              <th style=" border: 1px solid black;text-align: center;">Keywords</th>
+
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr *ngFor="let medicine of prescription">
+              <td style=" border: 1px solid black;text-align: center;">{{medicine.prescriptionName}}</td>
+              <td style=" border: 1px solid black;text-align: center;">{{medicine.dosage}}</td>
+              <td style=" border: 1px solid black;text-align: center;">{{medicine.prescriptionNotes}}
+              <td>
+            </tr>
+          </tbody>
+
+
+        </table>
+      </div>
+    </div>
+
+
+  </div>
+
+
+</body>

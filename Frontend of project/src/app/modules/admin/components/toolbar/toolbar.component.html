@@ -1,0 +1,50 @@
+<!-- <div class="toolbar"> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<mat-toolbar class="toolbar">
+
+    <button mat-icon-button (click)="drawer.toggle()" class="example-icon"
+        aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span><b> Practice Management System</b></span>
+    <span class="example-spacer"></span>
+    <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+            <mat-icon>favorite</mat-icon>
+        </button> -->
+    <!-- <button class="mail">
+        <mat-icon>
+            <span class="material-icons-outlined">
+                mail_outline
+            </span>
+        </mat-icon>
+    </button> -->
+    <button class="mail" [matMenuTriggerFor]="menu">
+        <mat-icon>
+            <span class="material-icons-outlined">
+                logout
+            </span>
+        </mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <div mat-menu-item *ngIf="auth.user$ | async as user">
+            {{ user.name }}
+        </div>
+        <button mat-menu-item (click)="auth.logout()">Sign-out</button>
+    </mat-menu>
+</mat-toolbar>
+<!-- </div> -->
+
+<div>
+    <mat-drawer-container class="example-container flex-container" hasBackdrop="false">
+        <mat-drawer #drawer mode="side" class="drawer" opened="true">
+            <app-side-nav-items></app-side-nav-items>
+        </mat-drawer>
+        <mat-drawer-content style="background-color: antiquewhite;">
+            <router-outlet></router-outlet>
+        </mat-drawer-content>
+    </mat-drawer-container>
+</div>
+<!-- style="background-image: url(https://img.freepik.com/free-vector/covid-19-vaccine-background-with-syringe-template_1361-2606.jpg?w=1060&t=st=1680027965~exp=1680028565~hmac=ff1f458d31725c9591065da88204e4d1474a7679c7c21ecb312abe32bbf642ea);
+background-repeat: no-repeat;width:100%;" -->

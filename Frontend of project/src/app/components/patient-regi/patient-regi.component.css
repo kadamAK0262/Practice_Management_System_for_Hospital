@@ -1,0 +1,36 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+mat-form-field {
+    /* margin: 1vw; */
+    width: 20vw;
+}
+
+mat-radio-group {
+    /* margin: 1vw; */
+    width: 20vw;
+}
+
+textarea {
+    margin: 1vw;
+    width: 42vw;
+}
+
+.registration {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.registerbtn {
+    width: 42vw;
+    margin: 1vw;
+    font-size: larger;
+    font-size: 3vb;
+}
+
+.left {
+    margin-right: 30px;
+}

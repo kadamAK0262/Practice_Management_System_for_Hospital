@@ -1,0 +1,165 @@
+<mat-accordion>
+    <mat-expansion-panel style="background-color: purple">
+        <mat-expansion-panel-header>
+            <mat-panel-title>id</mat-panel-title>
+            <mat-panel-title>Consultation Date</mat-panel-title>
+            <mat-panel-title> Physician Name </mat-panel-title>
+            <mat-panel-title> Diagnosis </mat-panel-title>
+        </mat-expansion-panel-header>
+    </mat-expansion-panel>
+    <ng-container *ngIf="physicianData.length==0">
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>No Previous Appointment History</mat-panel-title>
+            </mat-expansion-panel-header>
+        </mat-expansion-panel>
+    </ng-container>
+    <ng-container *ngIf="physicianData.length!=0">
+        <mat-expansion-panel *ngFor="let data of physicianData; let i = index">
+            <mat-expansion-panel-header style="background-color: aliceblue">
+                <mat-panel-title>{{ i + 1 }}</mat-panel-title>
+                <mat-panel-title>{{data.date}}</mat-panel-title>
+                <mat-panel-title>{{data.physcianEmail}}</mat-panel-title>
+                <mat-panel-title>{{data.reason}}</mat-panel-title>
+            </mat-expansion-panel-header>
+            <h2 style="text-align: center">Patient Details</h2>
+
+            <div style="height: 60vh; overflow-y: scroll; overflow-x: hidden">
+                <div FxFle class="card-wrapper" style="background-color: papayawhip">
+                    <div class="card-custom">
+                        <div class="card-description"
+                            style="padding: 20px; display: flex; justify-content: space-between">
+                            <div>
+                                <p>
+                                    <span style="font-weight: 700">BloodPressure : </span>{{
+                                    patientVisitDetails[i].bpSystolic}}/{{
+                                    patientVisitDetails[i].bpDiastolic}} (Systolic/Diastolic)
+                                </p>
+                                <p>
+                                    <span style="font-weight: 700">height :</span> {{ patientVisitDetails[i].height }}
+                                    cm
+                                </p>
+                                <p>
+                                    <span style="font-weight: 700">Weight :</span>{{ patientVisitDetails[i].weight }} kg
+                                </p>
+                                <p>
+                                    <span style="font-weight: 700">BodyTemperature :</span>
+                                    {{ patientVisitDetails[i].bodyTemparature }} Fahrenheit
+                                </p>
+                            </div>
+                            <div>
+                                <p>
+                                    <span style="font-weight: 700">Respiration Rate :</span>
+                                    {{ patientVisitDetails[i].respirationRate}} Breaths Per Minute
+                                </p>
+                                <p>
+                                    <span style="font-weight: 700">Allergies :</span>
+                                    Skin Allergy, Food Allergy
+                                </p>
+                                <p>
+                                    <span style="font-weight: 700"> Physician Email :</span>
+                                    {{ patientVisitDetails[i].physicianEmail }}
+                                </p>
+                                <p>
+                                    <span style="font-weight: 700"> Nurse Email :</span>
+                                    {{ patientVisitDetails[i].nurseEmail }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="display: flex">
+                    <div class="mat-elevation-z8" style="box-shadow: none;">
+                        <h2 style="text-align: center">Prescription Details</h2>
+                        <table mat-table [dataSource]="dataSourcePrescription[i]" matSort
+                            style="background-color: antiquewhite">
+
+                            <!-- Progress Column -->
+                            <ng-container matColumnDef="progress">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                    Prescription Name
+                                </th>
+                                <td mat-cell *matCellDef="let row">
+                                    {{ row.prescriptionName }}
+                                </td>
+                            </ng-container>
+
+                            <!-- Name Column -->
+                            <ng-container matColumnDef="name">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>Dosage</th>
+                                <td mat-cell *matCellDef="let row">{{ row.dosage }}</td>
+                            </ng-container>
+
+                            <!-- Fruit Column -->
+                            <ng-container matColumnDef="fruit">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                    Prescription Notes
+                                </th>
+                                <td mat-cell *matCellDef="let row">
+                                    {{ row.prescriptionNotes }}
+                                </td>
+                            </ng-container>
+
+                            <tr mat-header-row *matHeaderRowDef="displayedColumnsPrescription"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumnsPrescription"></tr>
+
+                            <!-- Row shown when there is no matching data. -->
+                            <!-- <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+              </tr> -->
+                        </table>
+
+                        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"
+                            aria-label="Select page of users"></mat-paginator>
+                    </div>
+
+                    <div class="mat-elevation-z8" style="box-shadow: none;">
+                        <h2 style="text-align: center">Test Details</h2>
+                        <table mat-table [dataSource]="dataSourceTest[i]" matSort
+                            style="background-color: antiquewhite">
+
+                            <!-- Progress Column -->
+                            <ng-container matColumnDef="progress">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                    Test Name
+                                </th>
+                                <td mat-cell *matCellDef="let row">{{ row.testName }}</td>
+                            </ng-container>
+
+                            <!-- Name Column -->
+                            <ng-container matColumnDef="name">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                    Test Result
+                                </th>
+                                <td mat-cell *matCellDef="let row">{{ row.result }}</td>
+                            </ng-container>
+
+                            <!-- Fruit Column -->
+                            <ng-container matColumnDef="fruit">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                    Test Notes
+                                </th>
+                                <td mat-cell *matCellDef="let row">{{ row.testNotes }}</td>
+                            </ng-container>
+
+                            <tr mat-header-row *matHeaderRowDef="displayedColumnsTest"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumnsTest"></tr>
+
+                            <!-- Row shown when there is no matching data. -->
+                            <!-- <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+              </tr> -->
+                        </table>
+
+                        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"
+                            aria-label="Select page of users"></mat-paginator>
+                    </div>
+                </div>
+            </div>
+            <!-- <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+      </mat-form-field> -->
+        </mat-expansion-panel>
+    </ng-container>
+</mat-accordion>

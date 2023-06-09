@@ -1,0 +1,93 @@
+.mat-mdc-card-avatar {
+    height: 60px !important;
+    width: 60px !important;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-bottom: 16px;
+    object-fit: cover;
+}
+
+.mat-elevation-z4:hover {
+    transform: translateY(-5px) scale(1.005) translateZ(0);
+    box-shadow: 14px 14px 24px 36px rgba(0, 0, 0, 0.11),
+        24px 24px 46px var(--box-shadow-color);
+    transform: rotateY("angle");
+    color: rgb(1, 16, 1);
+    border: 1px solid purple;
+}
+
+.mat-elevation-z4 {
+    box-shadow: 16px 4px 8px 0 rgba(13, 1, 1, 0.2);
+    transition: 0.3s;
+    background-color: white;
+}
+
+h3 {
+    text-align: center;
+    color: purple;
+}
+
+.end {
+    background-color: purple;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 4px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.end {
+    background-color: white;
+    color: black;
+    border: 1px solid purple;
+    border-radius: 25px;
+}
+
+
+.end:hover {
+    background-color: purple;
+    color: white;
+}
+
+
+
+.example-header-image {
+    background-image: url("../../../../../assets/defult-img.jpg");
+    background-size: cover;
+}
+
+mat-card-subtitle {
+    color: black;
+    font-weight: 400;
+    font-size: smaller;
+}
+
+mat-card-title {
+    color: purple;
+    font-weight: 500;
+    font-size: medium;
+}
+
+.searchDiv {
+    display: flex;
+    width: 100%;
+    margin: 10px 10px 3px 10px;
+    justify-content: space-between;
+}
+
+.inputBtn {
+    padding: 8px;
+    margin: 0 0 5px 10px;
+    border-radius: 8px;
+    float: right;
+    width: 15vw;
+    border: 1px solid grey;
+    outline: none;
+    font-size: smaller;
+}

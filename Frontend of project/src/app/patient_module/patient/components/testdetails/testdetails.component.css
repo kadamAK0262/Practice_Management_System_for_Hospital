@@ -1,0 +1,46 @@
+h3 {
+    text-align: center;
+    color: purple;
+}
+
+.table_div {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.close {
+    text-align: center;
+    border-right: 1px solid currentColor;
+    color: purple;
+}
+
+table {
+    border: 1px solid purple;
+}
+
+.end {
+    /* Green */
+    border: none;
+    color: white;
+    padding: 4px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.end {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    border-radius: 25px;
+    margin-left: 43%;
+}
+
+.end:hover {
+    background-color: purple;
+    color: white;
+}

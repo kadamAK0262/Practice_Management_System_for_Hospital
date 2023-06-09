@@ -1,0 +1,39 @@
+<section style="background-color: rgba(217, 214, 209, 0.518);
+border: 2px solid purple;">
+    <div class="container">
+        <br>
+        <h3 class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4" style="color:purple">Appointment Booking</h3>
+        <br>
+        <br>
+        <form [formGroup]="bookAppointment" (ngSubmit)="onBook()">
+            <div class="row">
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                    <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>Date Of Appointment</mat-label>
+                        <input formControlName="date" id="date" matInput [matDatepicker]="picker" [min]="minDate"
+                            [max]="maxDate" required>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker> </mat-datepicker>
+                        <mat-error *ngIf="(book.date.invalid &&  book.date.touched)||(book.date.invalid &&  submitted)">
+                            <span *ngIf="book.date.errors.required">date is mandatory</span><br><br>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 margin-top:10px">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Ailment</mat-label>
+                        <textarea formControlName="reason" id="reason" matInput required></textarea>
+                        <mat-error
+                            *ngIf="(book.reason.invalid &&  book.reason.touched)||(book.reason.invalid &&  submitted)">
+                            <span *ngIf="book.reason.errors.required">Ailment is mandatory</span>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <button type="submit" mat-raised-button color="primary" routerLinkActive="active" style="    width:17vw;
+                background-color: purple;">
+                    submit
+                </button>
+            </div>
+        </form>
+    </div>
+</section>

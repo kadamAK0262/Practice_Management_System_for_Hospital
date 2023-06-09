@@ -1,0 +1,15 @@
+<button mat-icon-button matDialogClose style="float:right;margin:15px 15px 0 0 ;">
+    <mat-icon>close</mat-icon>
+</button>
+<div class="dialog">
+    <mat-dialog-content>
+        <header>
+            <h1 style="color:purple;font-size:x-large;">Do you want to logout</h1>
+            <mat-divider></mat-divider>
+        </header>
+    </mat-dialog-content>
+    <mat-dialog-actions class="qwerty">
+        <button mat-stroked-button style="color: purple;" (click)="logout()" matDialogClose>Yes</button>
+        <button mat-stroked-button color="warn" matDialogClose>No</button>
+    </mat-dialog-actions>
+</div>

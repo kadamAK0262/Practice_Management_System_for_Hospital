@@ -1,0 +1,25 @@
+mat-form-field {
+    margin: 0.5vw;
+    /* width: 20vw; */
+}
+
+.updatebtn:hover {
+    background-color: purple;
+    color: white;
+    border: none;
+}
+
+.updatebtn {
+    background-color: white;
+    color: black;
+    border: 1px solid purple;
+    height: fit-content;
+    width: fit-content;
+    text-align: center;
+    left: 34%
+}
+
+.container {
+    width: 40vw;
+    height: 55vh;
+}

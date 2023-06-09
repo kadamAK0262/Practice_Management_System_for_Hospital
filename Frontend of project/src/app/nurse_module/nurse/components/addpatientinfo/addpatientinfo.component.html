@@ -1,0 +1,199 @@
+<div FxFle class="card-wrapper">
+    <div class="card-custom">
+        <div class="card-description" style="padding: 20px">
+            <h3>Patient Information</h3>
+            <p>
+                <span style="font-weight: 500">Name : </span>{{ patient.firstName }}
+            </p>
+            <p><span style="font-weight: 500">Age :</span> {{ patient.dob |age}}</p>
+            <p><span style="font-weight: 500">Gender :</span> {{ patient.gender }}</p>
+            <p>
+                <span style="font-weight: 500">Contact No.:</span>
+                {{ patient.contactNumber }}
+            </p>
+            <p>
+                <span style="font-weight: 500">Ailment :</span>
+                {{ailment}}
+            </p>
+        </div>
+        <ng-container *ngIf="appointmentsHistory.length!=0">
+            <div class="rightcard" style="padding: 20px">
+                <h3>Previous Health History</h3>
+                <p><span style="font-weight: 500">BloodGroup : </span>{{selectedBlood}}</p>
+                <p>
+                    <span style="font-weight: 500">Last Consultation Date: </span>{{lastConsultationDate}}
+                </p>
+                <p>
+                    <span style="font-weight: 500">Last Consultation with: </span>{{lastPhysicianEmail}}
+                </p>
+                <p>
+                    <span style="font-weight: 500; word-wrap: break-word">Key Notes on previous Consultation:
+                    </span>{{keyNotes}}
+                </p>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="appointmentsHistory.length==0">
+            <div class="rightcard" style="padding: 20px">
+                <h3>Previous Health History</h3>
+                <p><span style="font-weight: 500">BloodGroup : NA</span></p>
+                <p>
+                    <span style="font-weight: 500">Last Consultation Date: NA</span>
+                </p>
+                <p>
+                    <span style="font-weight: 500">Last Consultation with: NA</span>
+                </p>
+                <p>
+                    <span style="font-weight: 500; word-wrap: break-word">Key Notes on previous Consultation:
+                        NA</span>
+                </p>
+            </div>
+        </ng-container>
+
+    </div>
+    <div class="mainbtn" style="display: flex; justify-content: space-between">
+        <button mat-raised-button (click)="openDialog()" style="width:20%;background-color:purple;color: white;">
+            Previous Health History
+        </button>
+    </div>
+</div>
+
+<h3 style="display :flex;justify-content: center;color:purple">Enter the Patient Details</h3>
+<div class="visitDetails">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmitt()">
+        <div>
+            <mat-form-field>
+                <mat-label>Height</mat-label>
+                <input matInput type="text" placeholder="(20-200)cm" formControlName="heightt" id="heightt" />
+                <mat-error
+                    *ngIf="(data['heightt'].invalid &&  data['heightt'].touched)||(data['heightt'].invalid &&  submitted)">
+                    <span *ngIf="data['heightt'].errors!['required']">Height is mandatory</span>
+                    <span *ngIf="data['heightt'].errors!['max']">Max height must be 200cm</span>
+                    <span *ngIf="data['heightt'].errors!['min']">Min height must be 20cm</span>
+                    <span *ngIf="data['heightt'].errors!['pattern']">only Numeric values are allowed</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Weight</mat-label>
+                <input matInput type="text" placeholder="(3-500)kg" formControlName="weightt" id="weightt" required />
+                <mat-error
+                    *ngIf="(data['weightt'].invalid &&  data['weightt'].touched)||(data['weightt'].invalid &&  submitted)">
+                    <span *ngIf="data['weightt'].errors!['required']">Weight is mandatory</span>
+                    <span *ngIf="data['weightt'].errors!['max']">Max weight must be 500kg</span>
+                    <span *ngIf="data['weightt'].errors!['min']">Min weight must be 3kg</span>
+                    <span *ngIf="data['weightt'].errors!['pattern']">only Numeric values are allowed</span>
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field>
+                <mat-label>Bloodpressure-Systolic</mat-label>
+                <input matInput type="text" placeholder="(20-140)mmHg" formControlName="bpSystolic" id="bpSystolic"
+                    fxFlexOffset="20px" required />
+                <mat-error
+                    *ngIf="(data['bpSystolic'].invalid &&  data['bpSystolic'].touched)||(data['bpSystolic'].invalid &&  submitted)">
+                    <span *ngIf="data['bpSystolic'].errors!['required']">BpSystolic is mandatory</span>
+                    <span *ngIf="data['bpSystolic'].errors!['max']">Max BpSystolic must be 140mmHg</span>
+                    <span *ngIf="data['bpSystolic'].errors!['min']">Min BpSystolic must be 20mmHg</span>
+                    <span *ngIf="data['bpSystolic'].errors!['pattern']">only Numeric values are allowed</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>BloodPressure-Diastolic</mat-label>
+                <input matInput type="text" placeholder="(20-140)mmHg" formControlName="bpDiastolic" id="bpDiastolic"
+                    required />
+                <mat-error
+                    *ngIf="(data['bpDiastolic'].invalid &&  data['bpDiastolic'].touched)||(data['bpDiastolic'].invalid &&  submitted)">
+                    <span *ngIf="data['bpDiastolic'].errors!['required']">Diastolic is mandatory</span>
+                    <span *ngIf="data['bpDiastolic'].errors!['max']">Max Diastolic must be 140mmHg</span>
+                    <span *ngIf="data['bpDiastolic'].errors!['min']">Min Diastolic must be 20mmHg</span>
+                    <span *ngIf="data['bpDiastolic'].errors!['pattern']">only Numeric values are allowed</span>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Respiration-Rate</mat-label>
+                <input matInput type="text" placeholder="(12-40)Breaths per minute" formControlName="respirationRate"
+                    id="respirationRate" required />
+                <mat-error
+                    *ngIf="(data['respirationRate'].invalid &&  data['respirationRate'].touched)||(data['respirationRate'].invalid &&  submitted)">
+                    <span *ngIf="data['respirationRate'].errors!['required']">Respiration-Rate is mandatory</span>
+                    <span *ngIf="data['respirationRate'].errors!['max']">Max Respiration-Rate must be 40</span>
+                    <span *ngIf="data['respirationRate'].errors!['min']">Min Respiration-Rate must be 12</span>
+                    <span *ngIf="data['respirationRate'].errors!['pattern']">only Numeric values are allowed</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Sugar-Level</mat-label>
+                <input matInput type="text" placeholder="(15-300)mg/dL" formControlName="sugar" id="sugar"
+                    fxFlexOffset="20px" required />
+                <mat-error
+                    *ngIf="(data['sugar'].invalid &&  data['sugar'].touched)||(data['sugar'].invalid &&  submitted)">
+                    <span *ngIf="data['sugar'].errors!['required']">Sugar-level is mandatory</span>
+                    <span *ngIf="data['sugar'].errors!['max']">Max sugar-level must be 40</span>
+                    <span *ngIf="data['sugar'].errors!['min']">Min sugar-level must be 12</span>
+                    <span *ngIf="data['sugar'].errors!['pattern']">only Numeric values are allowed</span>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>BodyTemperature</mat-label>
+                <input matInput type="text" placeholder="(50-115)Fahrenheit" formControlName="bodyTemperature"
+                    id="bodyTemperature" required />
+                <mat-error
+                    *ngIf="(data['bodyTemperature'].invalid &&  data['bodyTemperature'].touched)||(data['bodyTemperature'].invalid &&  submitted)">
+                    <span *ngIf="data['bodyTemperature'].errors!['required']">BodyTemperature is mandatory</span>
+                    <span *ngIf="data['bodyTemperature'].errors!['max']">Max BodyTemperature must be 115</span>
+                    <span *ngIf="data['bodyTemperature'].errors!['min']">Min BodyTemperature must be 50</span>
+                    <span *ngIf="data['bodyTemperature'].errors!['pattern']">only Numeric values are allowed</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Allergies</mat-label>
+                <mat-select formControlName="allergies" multiple>
+                    <mat-option value="None">None</mat-option>
+                    <mat-option *ngFor="let topping of allergyData" [value]="topping.allergyDescription">{{
+                        topping.allergyDescription
+                        }}</mat-option>
+                </mat-select>
+                <mat-error
+                    *ngIf="(data['allergies'].invalid &&  data['allergies'].touched)||(data['allergies'].invalid &&  submitted)">
+                    <span *ngIf="data['allergies'].errors!['required']">Allergies is mandatory</span>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <ng-container *ngIf="appointmentsHistory.length==0">
+                <mat-form-field appearance="fill" style="width: 52vw;
+                margin: 1vw;">
+                    <mat-label>Blood_Group</mat-label>
+                    <mat-select formControlName="bloodgroup">
+                        <mat-option *ngFor="let type of bloodgroup" [value]="type">{{
+                            type
+                            }}</mat-option>
+                    </mat-select>
+                    <mat-error
+                        *ngIf="(data['bloodgroup'].invalid &&  data['bloodgroup'].touched)||(data['bloodgroup'].invalid &&  submitted)">
+                        <span *ngIf="data['bloodgroup'].errors!['required']">BloodGroup is mandatory</span>
+                    </mat-error>
+                </mat-form-field>
+            </ng-container>
+        </div>
+        <div>
+            <textarea formControlName="somethingData" class="inputform" placeholder="Notes to physician..."
+                required></textarea>
+            <mat-error
+                *ngIf="(data['somethingData'].invalid &&  data['somethingData'].touched)||(data['somethingData'].invalid &&  submitted)">
+                <span *ngIf="data['somethingData'].errors!['required']">Data is mandatory</span>
+                <span *ngIf="data['somethingData'].errors!['max']">Max length must be 300</span>
+                <span *ngIf="data['somethingData'].errors!['pattern']">Only Alpha-Numerics allowed</span>
+            </mat-error>
+        </div>
+        <div>
+            <button mat-raised-button class="btnform">submit</button>
+        </div>
+    </form>
+</div>
